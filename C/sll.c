@@ -21,10 +21,24 @@ void insertAtBegining(int value){
     newNode->next = head;
     head = newNode;
 }
-
+                                                                                                     
 void insertAtCustom(int value, int pos){
-    
+    struct Node* newNode = createNode(value);
+    struct Node* temp=head;
+
+    for(int i=0; i<pos-1 && temp!=NULL; i++){
+        temp=temp->next;
+    }
+
+    if(temp==NULL){
+        printf("position out of range");
+        return;
+    }
+    newNode->next=temp->next;
+    temp->next=newNode;
 }
+
+
 
 void insertAtEnd(int value){
     struct Node* newNode=createNode(value);
@@ -33,22 +47,56 @@ void insertAtEnd(int value){
         return;
     }
     struct Node* temp = head;
-    while(temp->next!==NULL){
-        temp=temp->next
+    while(temp->next!=NULL){
+        temp=temp->next;
     }
     temp->next=newNode;
 }
 
 void deleteAtFront(){
-    
+    if(head == NULL){
+        printf("List is empty");
+        return;
+    }
+
+    struct Node* temp=head;
+    head=head->next;
+    free(temp);
 }
 
 void deleteAtCustom(int pos){
-    
+    if(head == NULL){
+        printf("List is empty");
+        return;
+    }
+
+    struct Node* temp = head;
+    for (int i = 0; i < pos - 1 && temp->next != NULL; i++) {
+        temp = temp->next;
+    }
+
+    if (temp->next == NULL) {
+        printf("Position out of range\n");
+        return;
+    }
+
+    struct Node* toDelete = temp->next;
+    temp->next = temp->next->next;
+    free(toDelete);
 }
 
 void deleteAtEnd(){
-    
+    if(head == NULL){
+        printf("List is empty");
+        return;
+    }
+
+    struct Node* temp=head;
+    while(temp->next->next!=NULL){
+        temp=temp->next;
+    }
+    printf("deleted element: %d",temp->next );
+    temp->next=NULL;
 }
 
 void display(){
@@ -65,12 +113,30 @@ void display(){
     printf("NULL\n");
 }
 
+void searchh(int search){
+    struct Node* temp=head;
+    int position = 0;
+    int found = 0;
+
+    while (temp != NULL) {
+        if (temp->data == search) {
+            printf("Element found at position: %d\n", position);
+            found = 1;
+        }
+        temp = temp->next;
+        position++;
+    }
+
+    if (found==0) {
+        printf("Element not found\n");
+    }
+}
 
 int main(){
-    int ch, value, op, pos;
+    int ch, value, op, pos, search;
     while(1){
             printf("Enter operation to perform\n");
-        printf("1. Insertion  2.Deletion  3.Display  4.Exit: ");
+        printf("1. Insertion  2.Deletion  3.Display  4.Searching 5.Exit: ");
         scanf("%d",&ch);printf("\n");
         switch(ch){
             case 1: printf("1. Beginning, 2. Custom,  3. End: ");
@@ -79,46 +145,52 @@ int main(){
                         case 1: printf("Enter element to insert: ");
                                 scanf("%d", &value);
                                 insertAtBegining(value);
-                                printf("\n")
+                                printf("\n");
                                 break;
                         case 2: printf("Enter element to insert: ");
                                 scanf("%d", &value);
                                 printf("Enter position to insert: ");
                                 scanf("%d", &pos);
                                 insertAtCustom(value,pos);
-                                printf("\n")
+                                printf("\n");
                                 break;
                         case 3: printf("Enter element to insert: ");
                                 scanf("%d", &value);
                                 insertAtEnd(value);
-                                printf("\n")
+                                printf("\n");
 
                                 break;
                     }
                     break;
-            case 2: printf("1. Begining, 2. Custom,  3. End: ");
+            case 2: printf("1. Beginin, 2. Custom,  3. End: ");
                     scanf("%d",&op);printf("\n");
                     switch(op){
                         case 1: deleteAtFront();
-                                printf("\n")
+                                printf("\n");
 
                                 break;
                         case 2: printf("Enter pos to insert: ");
                                 scanf("%d", &pos);
                                 deleteAtCustom(pos);
-                                printf("\n")
+                                printf("\n");
 
                                 break;
                         case 3: deleteAtEnd();
-                                printf("\n")
+                                printf("\n");
                                 break;
                     }
                     break;
             case 3: display();
-                    printf("\n")
-
+                    printf("\n");
                     break;
-            case 4: return 1;
+
+            case 4: printf("Enter element to search");
+                    scanf("%d",&search);
+                    searchh(search);
+                    printf("\n");
+                    break;
+
+            case 5: return 1;
                     break;
 
         }
