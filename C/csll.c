@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Structure of a node
 struct Node {
     int data;
     struct Node* next;
@@ -9,7 +8,6 @@ struct Node {
 
 struct Node* head = NULL;
 
-// Function to create a new node
 struct Node* createNode(int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
@@ -17,13 +15,12 @@ struct Node* createNode(int value) {
     return newNode;
 }
 
-// Insert at beginning
 void insertAtBeginning(int value) {
     struct Node* newNode = createNode(value);
 
     if (head == NULL) {
         head = newNode;
-        head->next = head;  // circular
+        head->next = head;  
     } else {
         struct Node* temp = head;
         while (temp->next != head) {
@@ -36,7 +33,6 @@ void insertAtBeginning(int value) {
     printf("Inserted %d at beginning\n", value);
 }
 
-// Insert at end
 void insertAtEnd(int value) {
     struct Node* newNode = createNode(value);
 
@@ -54,13 +50,12 @@ void insertAtEnd(int value) {
     printf("Inserted %d at end\n", value);
 }
 
-// Delete at beginning
 void deleteAtBeginning() {
     if (head == NULL) {
         printf("List is empty\n");
         return;
     }
-    if (head->next == head) { // only one node
+    if (head->next == head) { 
         printf("Deleted %d\n", head->data);
         free(head);
         head = NULL;
@@ -80,13 +75,12 @@ void deleteAtBeginning() {
     free(temp);
 }
 
-// Delete at end
 void deleteAtEnd() {
     if (head == NULL) {
         printf("List is empty\n");
         return;
     }
-    if (head->next == head) { // only one node
+    if (head->next == head) { 
         printf("Deleted %d\n", head->data);
         free(head);
         head = NULL;
@@ -105,7 +99,6 @@ void deleteAtEnd() {
     free(temp);
 }
 
-// Display list
 void display() {
     if (head == NULL) {
         printf("List is empty\n");
@@ -120,7 +113,6 @@ void display() {
     printf("\n");
 }
 
-// Main menu
 int main() {
     int choice, value;
     while (1) {

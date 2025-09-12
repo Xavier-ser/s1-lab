@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Structure of a doubly linked list node
 struct Node {
     int data;
     struct Node* prev;
@@ -10,7 +9,6 @@ struct Node {
 
 struct Node* head = NULL;
 
-// Function to create a new node
 struct Node* createNode(int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = value;
@@ -19,7 +17,6 @@ struct Node* createNode(int value) {
     return newNode;
 }
 
-// Insert at beginning
 void insertAtBeginning(int value) {
     struct Node* newNode = createNode(value);
     if (head == NULL) {
@@ -32,7 +29,6 @@ void insertAtBeginning(int value) {
     printf("Inserted %d at beginning\n", value);
 }
 
-// Insert at end
 void insertAtEnd(int value) {
     struct Node* newNode = createNode(value);
     if (head == NULL) {
@@ -48,7 +44,6 @@ void insertAtEnd(int value) {
     printf("Inserted %d at end\n", value);
 }
 
-// Insert at specific position
 void insertAtPosition(int value, int pos) {
     struct Node* newNode = createNode(value);
 
@@ -76,7 +71,6 @@ void insertAtPosition(int value, int pos) {
     printf("Inserted %d at position %d\n", value, pos);
 }
 
-// Delete at beginning
 void deleteAtBeginning() {
     if (head == NULL) {
         printf("List is empty\n");
@@ -90,7 +84,6 @@ void deleteAtBeginning() {
     free(temp);
 }
 
-// Delete at end
 void deleteAtEnd() {
     if (head == NULL) {
         printf("List is empty\n");
@@ -109,7 +102,6 @@ void deleteAtEnd() {
     free(temp);
 }
 
-// Delete at specific position
 void deleteAtPosition(int pos) {
     if (head == NULL) {
         printf("List is empty\n");
@@ -141,7 +133,6 @@ void deleteAtPosition(int pos) {
     free(temp);
 }
 
-// Display forward
 void displayForward() {
     struct Node* temp = head;
     if (temp == NULL) {
@@ -156,7 +147,6 @@ void displayForward() {
     printf("\n");
 }
 
-// Display backward
 void displayBackward() {
     struct Node* temp = head;
     if (temp == NULL) {
@@ -174,7 +164,6 @@ void displayBackward() {
     printf("\n");
 }
 
-// Main menu
 int main() {
     int choice, value, pos;
     while (1) {
