@@ -1,55 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Program</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JS Program</title>
 </head>
-<body>
-    <h2>Program to add two numbers</h2>
-    <label for="num1">Number 1</label>
-    <input type="number" id="num1">
-    <br><br>
-    <label for="num2">Number 2</label>
-    <input type="number" id="num2">
-    <button onclick="addNum()">Add</button>
-    <h3 id="sum"></h3>
-    <br><br><br>    
-    <h3>Change color of text</h3>
-    <h4 id="color">Hello JS</h4>
-    <button onclick="toRed()">Red</button>
-    <button onclick="toGreen()">Green</button>
-    <button onclick="toBlue()">Blue</button>
+<body style="padding: 10px;">
+  <!-- Add Two Numbers -->
+  <h2>Program to Add Two Numbers</h2>
+  <label for="num1">Number 1:</label>
+  <input type="number" id="num1" />
+  <br><br>
+  <label for="num2">Number 2:</label>
+  <input type="number" id="num2" />
+  <button onclick="addNum()">Add</button>
+  <h3 id="sum"></h3>
 
-    <br><br><br>
-    <h2>Input using Prompt</h2>
-    <h3 id="showPromptValue"></h3>
+  <!-- Change Text Color -->
+  <br><br><br>
+  <h3>Change Color of Text</h3>
+  <h4 id="color">Hello JS</h4>
+  <button onclick="toRed()">Red</button>
+  <button onclick="toGreen()">Green</button>
+  <button onclick="toBlue()">Blue</button>
 
-</body>
-    <script>
-        function addNum() {
-            let n1 = parseFloat (document.getElementById("num1").value);
-            let n2 = parseFloat(document.getElementById("num2").value);
-            let result = n1 + n2;
-            
-            alert("Added Successfully");
-            document.getElementById("sum").innerHTML = "Sum = " + result;
-        }
+  <!-- Prompt Input -->
+  <br><br><br>
+  <h2>Input using Prompt</h2>
+  <h4 id="Value">Hello.. </h4>
+  <button onclick="showPromptValue()">Click me</button>
 
-        function toRed(){
-            document.getElementById("color").style.color="red";
-        }
-        function toGreen(){
-            document.getElementById("color").style.color="green";
-        }
-        function toBlue(){
-            document.getElementById("color").style.color="blue";
-        }
+  
+  <script>
+    // Add two numbers
+    function addNum() {
+      let n1 = parseFloat(document.getElementById("num1").value);
+      let n2 = parseFloat(document.getElementById("num2").value);
+      let result = n1 + n2;
+      alert("Added Successfully");
+      document.getElementById("sum").innerHTML = "Sum = " + result;
+    }
+
+    // Color change
+    function toRed() {
+      document.getElementById("color").style.color = "red";
+    }
+    function toGreen() {
+      document.getElementById("color").style.color = "green";
+    }
+    function toBlue() {
+      document.getElementById("color").style.color = "blue";
+    }
+
+    // Prompt
+    function showPromptValue() {
+      let x = prompt("Enter Your Name");
+      document.getElementById("Value").innerHTML += x;
+    }
+
+    // String functions
     
-        function showPromptValue(){
-            let x = prompt("Enter Your Name");
-
-            
-        }
-    </script>
+  </script>
+</body>
 </html>
