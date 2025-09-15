@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Program</title>
+</head>
+<body>
+    <h2>Program to add two numbers</h2>
+    <label for="num1">Number 1</label>
+    <input type="number" id="num1">
+    <br><br>
+    <label for="num2">Number 2</label>
+    <input type="number" id="num2">
+    <button onclick="addNum()">Add</button>
+    <h3 id="sum"></h3>
+    <br><br><br>    
+    <h3>Change color of text</h3>
+    <h4 id="color">Hello JS</h4>
+    <button onclick="toRed()">Red</button>
+    <button onclick="toGreen()">Green</button>
+    <button onclick="toBlue()">Blue</button>
+
+    <br><br><br>
+    <h2>Input using Prompt</h2>
+    <h3 id="showPromptValue"></h3>
+
+</body>
+    <script>
+        function addNum() {
+            let n1 = parseFloat (document.getElementById("num1").value);
+            let n2 = parseFloat(document.getElementById("num2").value);
+            let result = n1 + n2;
+            
+            alert("Added Successfully");
+            document.getElementById("sum").innerHTML = "Sum = " + result;
+        }
+
+        function toRed(){
+            document.getElementById("color").style.color="red";
+        }
+        function toGreen(){
+            document.getElementById("color").style.color="green";
+        }
+        function toBlue(){
+            document.getElementById("color").style.color="blue";
+        }
+    
+        function showPromptValue(){
+            let x = prompt("Enter Your Name");
+
+            
+        }
+    </script>
+</html>
