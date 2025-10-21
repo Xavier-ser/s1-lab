@@ -1,5 +1,5 @@
 even_list = []
-for i in range(2, 21, 2):  
+for i in range(2, 11):  
     even_list.append(i)
 
 print("Original even list:", even_list)
