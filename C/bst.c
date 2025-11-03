@@ -45,7 +45,6 @@ struct node* deleteNode(struct node* root, int key) {
     else if (key > root->data)
         root->right = deleteNode(root->right, key);
     else {
-        // Case 1 & 2: No child or one child
         if (root->left == NULL) {
             struct node* temp = root->right;
             free(root);
