@@ -10,14 +10,15 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$name = $_POST['name'];
-$gender = $_POST['gender'];
-$mark1 = $_POST['mark1'];
-$mark2 = $_POST['mark2'];
 $roll = $_POST['roll'];
-$total = $mark1 + $mark2;
+$name = $_POST['name'];
+$address = $_POST['address'];
+$ph = $_POST['ph'];
+$username = $_POST['username'];
+$password = $_POST['password'];
+$confirm = $_POST['con_pass'];
 
-$check_sql = "SELECT * FROM student_reg WHERE roll_no = '$roll'";
+$check_sql = "SELECT * FROM stud_registration WHERE `Roll No` = '$roll'";
 $result = mysqli_query($conn, $check_sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -26,21 +27,20 @@ if (mysqli_num_rows($result) > 0) {
             window.location.href = 'stud_reg.html';
           </script>";
 } else {
-    $sql = "INSERT INTO student_reg (name, gender, mark1, mark2, roll_no, total)
-            VALUES ('$name', '$gender', '$mark1', '$mark2', '$roll', '$total')";
+    $sql = "INSERT INTO stud_registration (`Roll No`, `Name`, `Address`, `Ph No`, `Username`, `Password`, `Confirm Password`)
+            VALUES ('$roll', '$name', '$address', '$ph', '$username', '$password', '$confirm')";
     
     if (mysqli_query($conn, $sql)) {
         echo "<script>
                 alert('Data saved successfully!');
-                window.location.href = 'stud_reg.html';
+                window.location.href = 'student_registration.html';
               </script>";
     } else {
         echo "<script>
                 alert('Database Error: " . addslashes(mysqli_error($conn)) . "');
-                window.location.href = 'stud_reg.html';
+                window.location.href = 'student_registration.html';
               </script>";
     }
 }
 
 mysqli_close($conn);
-?>
