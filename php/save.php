@@ -4,10 +4,10 @@ $username = "root";
 $password = "";
 $dbname = "my_test_db";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 $name = $_POST['name'];
@@ -18,9 +18,9 @@ $roll = $_POST['roll'];
 $total = $mark1 + $mark2;
 
 $check_sql = "SELECT * FROM student_reg WHERE roll_no = '$roll'";
-$result = $conn->query($check_sql);
+$result = mysqli_query($conn, $check_sql);
 
-if ($result->num_rows > 0) {
+if (mysqli_num_rows($result) > 0) {
     echo "<script>
             alert('Error: Roll number already exists! Please enter a unique roll number.');
             window.location.href = 'stud_reg.html';
@@ -29,18 +29,19 @@ if ($result->num_rows > 0) {
     $sql = "INSERT INTO student_reg (name, gender, mark1, mark2, roll_no, total)
             VALUES ('$name', '$gender', '$mark1', '$mark2', '$roll', '$total')";
 
-    if ($conn->query($sql) === TRUE) {
+    if (mysqli_query($conn, $sql)) {
         echo "<script>
                 alert('Data saved successfully!');
                 window.location.href = 'stud_reg.html';
               </script>";
     } else {
+        $error = addslashes(mysqli_error($conn));
         echo "<script>
-                alert('Database Error: " . addslashes($conn->error) . "');
+                alert('Database Error: $error');
                 window.location.href = 'stud_reg.html';
               </script>";
     }
 }
 
-$conn->close();
+mysqli_close($conn);
 ?>
