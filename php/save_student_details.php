@@ -25,7 +25,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "<script>
             alert('Error: Roll number already exists! Please enter a unique roll number.');
             window.location.href = 'stud_reg.html';
-          </script>";
+          </script>";   
 } else {
     $sql = "INSERT INTO stud_registration (`Roll No`, `Name`, `Address`, `Ph No`, `Username`, `Password`, `Confirm Password`)
             VALUES ('$roll', '$name', '$address', '$ph', '$username', '$password', '$confirm')";
