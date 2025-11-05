@@ -28,15 +28,16 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     $sql = "INSERT INTO student_reg (name, gender, mark1, mark2, roll_no, total)
             VALUES ('$name', '$gender', '$mark1', '$mark2', '$roll', '$total')";
-    
+
     if (mysqli_query($conn, $sql)) {
         echo "<script>
                 alert('Data saved successfully!');
                 window.location.href = 'stud_reg.html';
               </script>";
     } else {
+        $error = addslashes(mysqli_error($conn));
         echo "<script>
-                alert('Database Error: " . addslashes(mysqli_error($conn)) . "');
+                alert('Database Error: $error');
                 window.location.href = 'stud_reg.html';
               </script>";
     }
