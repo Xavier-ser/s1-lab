@@ -7,6 +7,27 @@ int graph[MAX][MAX];
 int indegree[MAX];
 int n;
 
+// Function to create a graph
+void createGraph() {
+    int edges, src, dest;
+    printf("Enter number of vertices: ");
+    scanf("%d", &n);
+    printf("Enter number of edges: ");
+    scanf("%d", &edges);
+
+    // Initialize graph
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            graph[i][j] = 0;
+
+    printf("Enter edges (source destination):\n");
+    for (int i = 0; i < edges; i++) {
+        scanf("%d%d", &src, &dest);
+        graph[src][dest] = 1; // Directed edge
+    }
+}
+
+
 // Function to find indegree of each vertex
 void findIndegree() {
     for (int i = 0; i < n; i++)
@@ -56,25 +77,6 @@ void topologicalSort() {
     printf("\n");
 }
 
-// Function to create a graph
-void createGraph() {
-    int edges, src, dest;
-    printf("Enter number of vertices: ");
-    scanf("%d", &n);
-    printf("Enter number of edges: ");
-    scanf("%d", &edges);
-
-    // Initialize graph
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
-            graph[i][j] = 0;
-
-    printf("Enter edges (source destination):\n");
-    for (int i = 0; i < edges; i++) {
-        scanf("%d%d", &src, &dest);
-        graph[src][dest] = 1; // Directed edge
-    }
-}
 
 // Display adjacency matrix
 void displayGraph() {
