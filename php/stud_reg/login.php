@@ -1,5 +1,4 @@
 <?php
-if($_SERVER["REQUEST_METHOD"]=="POST"){
 
 $conn = mysqli_connect("localhost", "root", "", "my_test_db");
 
@@ -14,22 +13,18 @@ $password = $_POST['password'] ;
 $query = "SELECT * FROM login WHERE username='$username' AND password='$password'";
 $result = mysqli_query($conn, $query);
 
-echo $result;
 
 if (mysqli_num_rows($result) > 0) {
 
+    $row = mysqli_fetch_assoc($result);
+
+    if ($row['usertype'] == 'admin') {
         header("Location: admin_home.html");
-
-    // $row = mysqli_fetch_assoc($result);
-
-    // if ($row['usertype'] == 'admin') {
-    //     header("Location: admin_home.html");
-    // }
+    }
 } else {
     echo "<script>
-                alert('Incorrect " . addslashes(mysqli_error($conn)) . "');
+                alert('Incorrect Username or Password: ');
                 window.location.href = 'login.html';
               </script>";
-}
 }
 ?>
