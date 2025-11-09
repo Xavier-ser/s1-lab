@@ -27,9 +27,22 @@ if (mysqli_num_rows($result) > 0) {
             window.location.href = 'admin_home.html';
           </script>";   
 } else {
-    $sql = "INSERT INTO student (`roll_no`, `name`, `address`, `ph_no`, `username`, `password`, `confirm_password`)
-            VALUES ('$roll', '$name', '$address', '$ph', '$username', '$password', '$confirm')";
-   // echo $ph;
+    $sql = "INSERT INTO student (`roll_no`, `name`, `address`, `ph_no`)
+            VALUES ('$roll', '$name', '$address', '$ph')";
+
+    $user_sql = "INSERT INTO login (`username`,`password`)
+            VALUES ('$username', '$password')";
+
+    if(strtolower($password)==strtolower($confirm)){
+        mysqli_query($conn, $user_sql);
+    }else{
+        echo "<script>
+                alert('Passwords do not match');
+                window.location.href = 'student_reg.html';
+              </script>";
+    }
+            
+            
     if (mysqli_query($conn, $sql)) {
         echo "<script>
                 
@@ -38,7 +51,7 @@ if (mysqli_num_rows($result) > 0) {
               </script>";
     } else {
         echo "<script>
-                alert('Database Error: " . addslashes(mysqli_error($conn)) . "');
+                alert('Database Error: ');
                 window.location.href = 'student_reg.html';
               </script>";
     }
