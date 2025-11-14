@@ -6,7 +6,6 @@ struct node {
     struct node *left, *right;
 };
 
-// Create a new node
 struct node* newNode(int value) {
     struct node* temp = (struct node*)malloc(sizeof(struct node));
     temp->data = value;
@@ -14,7 +13,6 @@ struct node* newNode(int value) {
     return temp;
 }
 
-// Insertion in BST
 struct node* insert(struct node* root, int value) {
     if (root == NULL)
         return newNode(value);
@@ -27,7 +25,6 @@ struct node* insert(struct node* root, int value) {
     return root;
 }
 
-// Find minimum value node (for deletion)
 struct node* minValueNode(struct node* node) {
     struct node* current = node;
     while (current && current->left != NULL)
@@ -35,7 +32,6 @@ struct node* minValueNode(struct node* node) {
     return current;
 }
 
-// Delete node (3 cases)
 struct node* deleteNode(struct node* root, int key) {
     if (root == NULL)
         return root;
@@ -56,7 +52,6 @@ struct node* deleteNode(struct node* root, int key) {
             return temp;
         }
 
-        // Case 3: Two children
         struct node* temp = minValueNode(root->right);
         root->data = temp->data;
         root->right = deleteNode(root->right, temp->data);
@@ -64,7 +59,6 @@ struct node* deleteNode(struct node* root, int key) {
     return root;
 }
 
-// Inorder traversal (Left, Root, Right)
 void inorder(struct node* root) {
     if (root != NULL) {
         inorder(root->left);
@@ -73,7 +67,6 @@ void inorder(struct node* root) {
     }
 }
 
-// Preorder traversal (Root, Left, Right)
 void preorder(struct node* root) {
     if (root != NULL) {
         printf("%d ", root->data);
@@ -82,7 +75,6 @@ void preorder(struct node* root) {
     }
 }
 
-// Postorder traversal (Left, Right, Root)
 void postorder(struct node* root) {
     if (root != NULL) {
         postorder(root->left);
@@ -94,7 +86,6 @@ void postorder(struct node* root) {
 int main() {
     struct node* root = NULL;
 
-    // Insert nodes
     root = insert(root, 50);
     root = insert(root, 30);
     root = insert(root, 20);

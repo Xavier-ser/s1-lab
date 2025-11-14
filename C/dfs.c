@@ -44,7 +44,6 @@ int main() {
     printf("Enter number of vertices: ");
     scanf("%d", &n);
 
-    // Initialize
     for (int i = 0; i < n; i++) {
         visited[i] = 0;
         for (int j = 0; j < n; j++)
@@ -57,7 +56,7 @@ int main() {
     printf("Enter edges (v1 v2):\n");
     for (int i = 0; i < edges; i++) {
         scanf("%d %d", &v1, &v2);
-        adj[v1][v2] = adj[v2][v1] = 1;  // Undirected graph
+        adj[v1][v2] = adj[v2][v1] = 1;  
     }
 
     printf("Enter starting vertex: ");

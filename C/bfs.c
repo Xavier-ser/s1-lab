@@ -48,7 +48,6 @@ int main() {
     printf("Enter number of vertices: ");
     scanf("%d", &n);
 
-    // Initialize
     for (int i = 0; i < n; i++) {
         visited[i] = 0;
         for (int j = 0; j < n; j++)
