@@ -12,3 +12,4 @@ while i < len(even_list):
         i += 1  
 
 print("List after removing even numbers:", even_list)
+

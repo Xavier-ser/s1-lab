@@ -7,3 +7,8 @@ if len(color_list) == 0:
 else:
     print("First color:", color_list[0])
     print("Last color:", color_list[-1])
+
+
+
+
+

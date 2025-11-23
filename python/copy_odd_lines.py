@@ -10,3 +10,6 @@ with open(output_file, 'w') as outfile:
             outfile.write(line)
 
 print(f"Odd lines copied from '{input_file}' to '{output_file}' successfully.")
+
+
+
