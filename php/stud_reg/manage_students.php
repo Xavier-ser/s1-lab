@@ -1,20 +1,20 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "my_test_db");
+$conn = mysqli_connect("localhost", "root", "", "my_test_db");
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if (!$conn) {
+    die("Connection Failed: " . mysqli_connect_error());
 }
 
 // DELETE row if delete button clicked
 if (isset($_GET['delete'])) {
     $roll = $_GET['delete'];
-    $conn->query("DELETE FROM student WHERE roll_no = $roll");
+    mysqli_query($conn, "DELETE FROM student WHERE roll_no = '$roll'");
     header("Location: manage_students.php");
     exit;
 }
 
 // Fetch all students
-$result = $conn->query("SELECT * FROM student");
+$result = mysqli_query($conn, "SELECT * FROM student");
 ?>
 
 <!DOCTYPE html>
@@ -22,32 +22,40 @@ $result = $conn->query("SELECT * FROM student");
 <head>
     <title>Manage Students</title>
     <style>
-        table { 
-            border-collapse: collapse; 
-            width: 80%; 
-            margin: auto; 
+        table {
+            border-collapse: collapse;
+            width: 85%;
+            margin: 30px auto;
         }
-        th, td { 
-            border: 1px solid #000; 
-            padding: 10px; 
-            text-align: center; 
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #aaa;
+            text-align: center;
         }
-        a.btn { 
-            padding: 5px 10px; 
-            background: blue; 
-            color: white; 
-            text-decoration: none; 
-            border-radius: 4px; 
-            margin-right: 12px;   /* SPACE ADDED HERE */
+        th {
+            background: #eee;
+            font-weight: bold;
         }
-        a.del { 
-            background: red; 
+        a.btn {
+            padding: 6px 12px;
+            background: blue;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        a.del {
+            background: red;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 25px;
         }
     </style>
 </head>
 <body>
 
-<h2 style="text-align:center;">Student List</h2>
+<h2>Student List</h2>
 
 <table>
     <tr>
@@ -58,7 +66,7 @@ $result = $conn->query("SELECT * FROM student");
         <th>Actions</th>
     </tr>
 
-    <?php while($row = $result->fetch_assoc()): ?>
+    <?php while($row = mysqli_fetch_assoc($result)): ?>
         <tr>
             <td><?= $row['roll_no'] ?></td>
             <td><?= $row['name'] ?></td>
@@ -66,7 +74,7 @@ $result = $conn->query("SELECT * FROM student");
             <td><?= $row['ph_no'] ?></td>
             <td>
                 <a class="btn" href="update_student.php?roll=<?= $row['roll_no'] ?>">Update</a>
-                <a class="btn del" href="manage_students.php?delete=<?= $row['roll_no'] ?>" 
+                <a class="btn del" href="manage_students.php?delete=<?= $row['roll_no'] ?>"
                    onclick="return confirm('Delete this student?');">
                    Delete
                 </a>
@@ -75,5 +83,8 @@ $result = $conn->query("SELECT * FROM student");
     <?php endwhile; ?>
 
 </table>
+
+<?php mysqli_close($conn); ?>
+
 </body>
 </html>
