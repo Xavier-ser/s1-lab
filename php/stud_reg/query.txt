@@ -13,4 +13,21 @@ CREATE TABLE marks (
 );
 
 
+CREATE TABLE `student` (
+  `roll_no` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `address` varchar(20) NOT NULL,
+  `ph_no` int(11) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `confirm_password` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
+
+CREATE TABLE `login` (
+  `id` int(11) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `usertype` varchar(10) DEFAULT 'student'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
