@@ -59,7 +59,7 @@ void pop(int a[]){
         printf("Stack Underflow\n");
     }else{
         printf("%d successfully popped\n", a[top]);
-        (top)--;
+        top--;
     }
 }
 

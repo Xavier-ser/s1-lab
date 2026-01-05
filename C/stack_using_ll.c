@@ -12,7 +12,7 @@ void push(int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     if (newNode == NULL) {
         printf("Stack overflow\n");
-        return;
+        return;  
     }
     newNode->data = value;
     newNode->next = top;

@@ -5,7 +5,6 @@ if (!$conn) {
     die("Connection Failed: " . mysqli_connect_error());
 }
 
-// DELETE row if delete button clicked
 if (isset($_GET['delete'])) {
     $roll = $_GET['delete'];
     mysqli_query($conn, "DELETE FROM student WHERE roll_no = '$roll'");
@@ -13,7 +12,6 @@ if (isset($_GET['delete'])) {
     exit;
 }
 
-// Fetch all students
 $result = mysqli_query($conn, "SELECT * FROM student");
 ?>
 
@@ -32,25 +30,7 @@ $result = mysqli_query($conn, "SELECT * FROM student");
             border-bottom: 1px solid #aaa;
             text-align: center;
         }
-        th {
-            background: #eee;
-            font-weight: bold;
-        }
-        a.btn {
-            padding: 6px 12px;
-            background: blue;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            margin-right: 10px;
-        }
-        a.del {
-            background: red;
-        }
-        h2 {
-            text-align: center;
-            margin-top: 25px;
-        }
+        
     </style>
 </head>
 <body>
