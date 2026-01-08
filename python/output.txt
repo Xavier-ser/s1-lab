@@ -1,4 +1,0 @@
-import math
-radius = int(input("enter the radius:"))
-
-print(f"area={area:.3f}cm sq     perimeter={perimeter:.3f}cm" )
