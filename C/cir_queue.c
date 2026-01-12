@@ -4,69 +4,127 @@
 int queue[SIZE];
 int front = -1, rear = -1;
 
-void enqueue(int value) {
-    if ((rear + 1) % SIZE == front) {
+void enqueue(int value)
+{
+    if ((rear + 1) % SIZE == front)
+    {
         printf("Queue is Full (Overflow)\n");
-    } else {
-        if (front == -1) front = 0; 
+    }
+    else
+    {
+        if (front == -1)
+            front = 0;
+
         rear = (rear + 1) % SIZE;
         queue[rear] = value;
         printf("Inserted %d\n", value);
     }
 }
 
-void dequeue() {
-    if (front == -1) {
+void dequeue()
+{
+    if (front == -1)
+    {
         printf("Queue is Empty (Underflow)\n");
-    } else {
+    }
+    else
+    {
         printf("Deleted %d\n", queue[front]);
-        if (front == rear) {
+
+        if (front == rear)
             front = rear = -1;
-        } else {
+        else
             front = (front + 1) % SIZE;
-        }
     }
 }
 
-void display() {
-    if (front == -1) {
+void display()
+{
+    if (front == -1)
+    {
         printf("Queue is Empty\n");
-    } else {
-        printf("Queue elements: ");
+    }
+    else
+    {
         int i = front;
-        while (1) {
+        printf("Queue elements: ");
+        while (1)
+        {
             printf("%d ", queue[i]);
-            if (i == rear) break;
+            if (i == rear)
+                break;
             i = (i + 1) % SIZE;
         }
         printf("\n");
     }
 }
 
-int main() {
+void search(int key)
+{
+    if (front == -1)
+    {
+        printf("Queue is Empty\n");
+        return;
+    }
+
+    int i = front;
+    int pos = 1;
+
+    while (1)
+    {
+        if (queue[i] == key)
+        {
+            printf("Element %d found at position %d\n", key, pos);
+            return;
+        }
+
+        if (i == rear)
+            break;
+
+        i = (i + 1) % SIZE;
+        pos++;
+    }
+
+    printf("Element %d not found in queue\n", key);
+}
+
+int main()
+{
     int choice, value;
 
-    while (1) {
-        printf("\n1. Enqueue\n2. Dequeue\n3. Display\n4. Exit\n");
+    while (1)
+    {
+        printf("\n1. Enqueue\n2. Dequeue\n3. Display\n4. Search\n5. Exit\n");
         printf("Enter choice: ");
         scanf("%d", &choice);
 
-        switch (choice) {
-            case 1:
-                printf("Enter value to insert: ");
-                scanf("%d", &value);
-                enqueue(value);
-                break;
-            case 2:
-                dequeue();
-                break;
-            case 3:
-                display();
-                break;
-            case 4:
-                return 0;
-            default:
-                printf("Invalid choice\n");
+        switch (choice)
+        {
+        case 1:
+            printf("Enter value to insert: ");
+            scanf("%d", &value);
+            enqueue(value);
+            break;
+
+        case 2:
+            dequeue();
+            break;
+
+        case 3:
+            display();
+            break;
+
+        case 4:
+            printf("Enter element to search: ");
+            scanf("%d", &value);
+            search(value);
+            break;
+
+        case 5:
+            return 0;
+
+        default:
+            printf("Invalid choice\n");
         }
     }
 }
