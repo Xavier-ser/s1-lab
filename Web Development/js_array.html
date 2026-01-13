@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="abc"></p>
+</body>
+<script>
+    const cars = Array('BMW','MERCEDES','ROLLS ROYCE','McLAREN','BENTLEY','ASTON MARTIN','PORSCHE','NISSAN','LEXUS','JAGUAR','LAMBORGINI','FERRARI','PAGANI','KOENISEGG','MITSUBUSHI','BUGATTI','MINI COOPER','LAND ROVER','TESLA','TOYOTA','HONDA','TATA','SUZUKI','HYUNDAI')
+
+    cars.push("AUDI")
+
+    var str = "<ul>";
+    for(var i=0;i<cars.length;i++){
+        str+="<li>"+cars[i]+"</li>"
+
+    }
+    str+="</ul>"
+    document.getElementById("abc").innerHTML=str;
+
+</script>
+</html>

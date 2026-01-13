@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+        .container {
+            display: flex;
+            height: 100vh; 
+            width: 100%;
+        }
+
+        iframe {
+            border: none; 
+           justify-content: center;
+        }
+
+        .sidebar {
+            width: 25%;
+            height: 100vh;
+            background-color: #f0f4f8;
+            overflow: hidden; 
+        }
+
+        .content {
+            flex: 1;
+            height: 100vh;
+            overflow: hidden; 
+        }
+    </style>
+
+<body>
+    <div class="container">
+        <iframe src="admin_sidebar.html" class="sidebar"></iframe>
+        <iframe name="content-frame" class="content"></iframe>
+    </div>
+</body>
+</html>

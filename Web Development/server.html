@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Servers: An In-depth Overview</title>
+    <style>
+        body {
+            margin: 0;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #34495e;
+            color: #ecf0f1;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+        .server-grid {
+            display: grid;
+            gap: 25px;
+        }
+        .server-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        
+        .server-card h3 {
+            margin-top: 0;
+            color: #34495e;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 5px;
+        }
+        .server-card img {
+            max-width: 80px;
+            height: auto;
+            display: block;
+            margin: 0 auto 15px;
+        }
+       
+        .glossary-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .glossary-list dt {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .glossary-list dd {
+            margin-left: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #34495e;
+            color: #ecf0f1;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Web Servers: An In-depth Overview</h1>
+        <p>The foundation of the World Wide Web, delivering content to millions of users.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>What is a Web Server?</h2>
+            <p>At its core, a <b>web server</b> is a computer program that processes requests made by web browsers and serves them with the appropriate web pages and data. It acts as a digital waiter in the vast restaurant of the internet. When you type a URL into your browser, the browser sends a request to the server that hosts that website. The server then locates the requested HTML file, image, or other asset and sends it back to your browser, which then renders it for you to see. This entire process happens in milliseconds.</p>
+            <p>Beyond simply serving static files, modern web servers can also execute server-side scripts (like PHP, Python, or Node.js) to generate dynamic content, manage databases, and handle complex requests. They are the essential link between a user's device and the website's data and functionality.</p>
+        </section>
+
+        <section>
+            <h2>How a Web Server Works</h2>
+            <p>The client-server model is the foundational principle of the web. Here’s a simplified breakdown of the process:</p>
+            <ol>
+                <li>A user enters a URL (e.g., `www.example.com`) into their browser, the  client .</li>
+                <li>The browser translates the domain name into an IP address using the  Domain Name System (DNS) .</li>
+                <li>The browser sends an HTTP (Hypertext Transfer Protocol) request to the web server at that IP address.</li>
+                <li>The <b>web server</b> receives the request, processes it, and finds the requested file(s).</li>
+                <li>The server sends an  HTTP response  back to the browser, containing the requested files.</li>
+                <li>The browser receives the files and renders the web page on the user's screen.</li>
+            </ol>
+            
+        </section>
+
+        <section class="server-grid">
+            <article class="server-card">
+                <h3>Apache HTTP Server</h3>
+                <p>One of the oldest and most widely used web servers,  Apache  is an open-source server known for its flexibility and strong community support. It is highly modular and customizable through a large number of modules. Apache runs on a variety of operating systems and has been a cornerstone of web infrastructure for over two decades. </p>
+            </article>
+
+            <article class="server-card">
+                <h3>Nginx</h3>
+                <p>Pronounced "engine-x,"  Nginx  is a high-performance web server known for its efficiency and scalability. It was originally created to solve the "C10K problem" (handling ten thousand concurrent connections) and is a popular choice for high-traffic websites. Nginx is commonly used as a reverse proxy, load balancer, and HTTP cache, in addition to its role as a primary web server. </p>
+            </article>
+
+            <article class="server-card">
+                <h3>Microsoft IIS</h3>
+                <p> Internet Information Services (IIS)  is a web server developed by Microsoft and is tightly integrated with the Windows operating system. It's a powerful and reliable server often used in enterprise environments that rely on Microsoft technologies. IIS is known for its easy management through a graphical user interface and robust security features within the Windows ecosystem. </p>
+            </article>
+
+            <article class="server-card">
+                <h3>Lighttpd</h3>
+                <p> Lighttpd  (pronounced "lighty") is a free and open-source web server designed for speed-critical environments. It is known for its low memory usage, small CPU load, and excellent performance. Lighttpd is a popular choice for embedded systems and web applications that require fast and efficient handling of static files, making it a powerful lightweight alternative to larger servers. </p>
+            </article>
+        </section>
+
+        <section>
+            <h2>Key Terminology</h2>
+            <dl class="glossary-list">
+                <dt>Client</dt>
+                <dd>The software (like a web browser) that requests a resource from a server.</dd>
+                <dt>HTTP</dt>
+                <dd>Hypertext Transfer Protocol. The protocol used for communication between web browsers and servers.</dd>
+                <dt>DNS</dt>
+                <dd>Domain Name System. A hierarchical and decentralized naming system for computers and services, translating domain names into IP addresses.</dd>
+                <dt>IP Address</dt>
+                <dd>A unique numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication.</dd>
+                <dt>Static Content</dt>
+                <dd>Files that are delivered to the user exactly as they are stored on the server (e.g., HTML files, images, CSS).</dd>
+                <dt>Dynamic Content</dt>
+                <dd>Content that is generated on the server at the time of the request (e.g., a personalized user dashboard, search results).</dd>
+            </dl>
+        </section>
+         <br>
+        <center><a href="./web.html" style = "font-size:20px;"><strong>< Web Browser </strong> </center>
+    </main>
+
+    <footer>
+        <p> &copy;CET 2025</p>
+    </footer>
+
+</body>
+</html>

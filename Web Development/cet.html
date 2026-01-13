@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College of Engineering Trivandrum</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9I2PkXW42XbK9yG6p8mYl2yL4Ff1L2F6Kx01gqR4bW2x/z0kLpW6qJ5P6w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary-color: #0c4a6e;
+            --secondary-color: #1d4ed8;
+            --accent-color: #3b82f6;
+            --dark-color: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+        }
+
+        /* Custom Styles for Navbar */
+        .navbar-custom {
+            transition: background-color 0.3s ease-in-out;
+            padding: 1rem 0;
+            background-color: transparent !important;
+        }
+
+        .navbar-custom.scrolled {
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand, .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: 600;
+        }
+
+        .navbar-custom.scrolled .navbar-brand, .navbar-custom.scrolled .navbar-nav .nav-link {
+            color: var(--dark-color) !important;
+        }
+
+        .navbar-nav .nav-link.active::after, .navbar-nav .nav-link:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 80%;
+            height: 2px;
+            background-color: var(--accent-color);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-image: url('https://placehold.co/1920x1080/0f172a/60a5fa?text=CET+Campus');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+
+        /* Sections */
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .icon-wrapper {
+            background-color: #e0f2fe;
+            color: var(--accent-color);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header and Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
+            <div class="container-fluid container">
+                <a class="navbar-brand fs-4 fw-bold" href="#">CET</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Academics</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Admissions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="display-3 fw-bold animate__animated animate__fadeInDown">
+                        College of Engineering Trivandrum
+                    </h1>
+                    <p class="lead mt-4 animate__animated animate__fadeInUp">
+                        CET is a premier institution offering high-quality technical education and fostering innovation.
+                    </p>
+                    <a href="#academics" class="btn btn-primary btn-lg rounded-pill mt-4 px-5 animate__animated animate__zoomIn">
+                        Explore Our Programs
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-white">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold">About CET</h2>
+                    <p class="lead text-muted">A legacy of excellence and innovation.</p>
+                </div>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <div class="feature-card p-4">
+                        <div class="icon-wrapper mx-auto mb-3">
+                            <i class="fas fa-book fa-2x"></i>
+                        </div>
+                        <h4>Exceptional Academics</h4>
+                        <p class="text-muted">A wide range of engineering and architecture programs with a focus on practical learning.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card p-4">
+                        <div class="icon-wrapper mx-auto mb-3">
+                            <i class="fas fa-users fa-2x"></i>
+                        </div>
+                        <h4>Vibrant Campus Life</h4>
+                        <p class="text-muted">Engage in various clubs, sports, and cultural events for a holistic development.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card p-4">
+                        <div class="icon-wrapper mx-auto mb-3">
+                            <i class="fas fa-graduation-cap fa-2x"></i>
+                        </div>
+                        <h4>Research & Innovation</h4>
+                        <p class="text-muted">World-class facilities and a faculty dedicated to pushing the boundaries of technology.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics Section -->
+    <section id="academics" class="section-padding">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold">Our Academic Programs</h2>
+                    <p class="lead text-muted">Undergraduate and postgraduate courses across various disciplines.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm rounded-4 border-0">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">B.Tech in Civil Engineering</h5>
+                            <p class="card-text text-muted">Shaping the future of infrastructure and construction.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm rounded-pill">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm rounded-4 border-0">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">B.Tech in Computer Science</h5>
+                            <p class="card-text text-muted">Pioneering advancements in software and technology.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm rounded-pill">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm rounded-4 border-0">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">B.Tech in Mechanical Engineering</h5>
+                            <p class="card-text text-muted">Designing, analyzing, and manufacturing mechanical systems.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm rounded-pill">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm rounded-4 border-0">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">B.Arch in Architecture</h5>
+                            <p class="card-text text-muted">Creating innovative and sustainable design solutions.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm rounded-pill">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm rounded-4 border-0">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">M.Tech Programs</h5>
+                            <p class="card-text text-muted">Advanced postgraduate degrees in various specializations.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm rounded-pill">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm rounded-4 border-0">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Ph.D. Research</h5>
+                            <p class="card-text text-muted">Doctoral programs for cutting-edge research.</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm rounded-pill">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold">About CET</h5>
+                    <p class="text-muted">The College of Engineering Trivandrum, a beacon of technical education, has been shaping future engineers and leaders since 1939.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold">Quick Links</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li><a href="#" class="text-decoration-none text-muted">Admissions</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Departments</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Library</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Campus Life</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Alumni</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold">Contact Us</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li><i class="fas fa-map-marker-alt me-2 text-primary"></i>CET Campus, Sreekariyam, Trivandrum - 695016</li>
+                        <li><i class="fas fa-phone me-2 text-primary"></i>+91 471 2515502</li>
+                        <li><i class="fas fa-envelope me-2 text-primary"></i>info@cet.ac.in</li>
+                    </ul>
+                    <div class="mt-3">
+                        <a href="#" class="text-primary me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-primary me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-primary me-3"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                        <a href="#" class="text-primary me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // Simple JavaScript to handle the navbar scroll effect
+        document.addEventListener("DOMContentLoaded", function() {
+            const navbar = document.querySelector('.navbar-custom');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+</head>
+<body>
+
+    <center>
+        <h2>Student Registration Form</h2>
+        <form action="#" method="post" enctype="multipart/form-data">
+
+            <table border="0" cellpadding="10" cellspacing="0" style="width: 80%;">
+                
+                <tr>
+                    <td colspan="2" style="background-color: #f2f2f2;"><h3>Personal Information</h3></td>
+                </tr>
+                <tr>
+                    <td align="right" style="width: 30%;">
+                        <label>Full Name:</label>
+                    </td>
+                    <td align="left">
+                        <input type="text" id="full_name" name="full_name" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label for="dob">Date of Birth:</label>
+                    </td>
+                    <td align="left">
+                        <input type="date" id="dob" name="dob" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label>Gender:</label>
+                    </td>
+                    <td align="left">
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                        <input type="radio" id="other" name="gender" value="other">
+                        <label for="other">Other</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label for="nationality">Nationality:</label>
+                    </td>
+                    <td align="left">
+                        <input type="text" id="nationality" name="nationality" value="Indian" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="right">
+                        <label for="nationality">Profile Photo:</label>
+                    </td>
+                    <td align="left">
+                        <input type="file" id="nationality" name="nationality" value="Indian" required>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2" style="background-color: #f2f2f2;"><h3>Contact Information</h3></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label >Email Address:</label>
+                    </td>
+                    <td align="left">
+                        <input type="email" id="email" name="email" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label for="phone"></label>
+                    </td>
+                    <td align="left">
+                        <button type="reset" >Reset</button>
+                    </td>
+                </tr>
+                

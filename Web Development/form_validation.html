@@ -1,0 +1,237 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Reg</title>
+</head>
+<body>
+    <div style="width: 700px; margin-left: 340px; background-color: rgb(192, 220, 230);">
+        <marquee behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="20">
+            <h1 style="color: red;">Welcome to freshers world</h1>
+        </marquee>
+
+        <form action="#" method="post" enctype="multipart/form-data">
+            <table border="1" width="100%" cellspacing="0" cellpadding="8">
+                <tr>
+                    <th colspan="2">
+                        <center><h2 style="padding-top: 5px;">Registration Form</h2></center>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <input type="text" name="name" id="name">
+                        <p style="color: red;" id="req_name"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Age</td>
+                    <td>
+                        <input type="number" name="age" id="age">
+                        <p style="color: red;" id="req_age"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <select name="gender" id="gender">
+                            <option value="">--select--</option>
+                            <option value="male">male</option>
+                            <option value="female">female</option>
+                            <option value="others">others</option>
+                        </select>
+                        <p style="color: red;" id="req_gender"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Password</td>
+                    <td>
+                        <input type="password" name="password" id="password">
+                        <p style="color: red;" id="req_password"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Re-enter password</td>
+                    <td>
+                        <input type="password" name="repassword" id="repassword">
+                        <p style="color: red;" id="req_repassword"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="4">Select your security question</td>
+                    <td><input type="radio" name="security" value="pet"> What is your pet name?</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="security" value="friend"> Who is your best friend?</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="security" value="color"> What is your favourite colour?</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="security" value="teacher"> Who is your favourite teacher?</td>
+                </tr>
+
+                <tr>
+                    <td>Answer of Security Question</td>
+                    <td>
+                        <input type="text" name="security_answer" id="security_answer">
+                        <p style="color: red;" id="req_security"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Email id</td>
+                    <td>
+                        <input type="email" name="email" id="email">
+                        <p style="color: red;" id="req_email"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Languages known</td>
+                    <td>
+                        <input type="checkbox" name="language" value="Malayalam" class="lang">Malayalam
+                        <input type="checkbox" name="language" value="English" class="lang">English
+                        <input type="checkbox" name="language" value="Hindi" class="lang">Hindi
+                        <p style="color: red;" id="req_language"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Phone number</td>
+                    <td>
+                        <table border="1" width="100%">
+                            <tr>
+                                <th>Home</th>
+                                <th>Office</th>
+                            </tr>
+                            <tr>
+                                <td><input type="number" name="home_phone" id="home_phone"></td>
+                                <td><input type="number" name="office_phone" id="office_phone"></td>
+                            </tr>
+                        </table>
+                        <p style="color: red;" id="req_phone"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Upload CV</td>
+                    <td>
+                        <input type="file" name="cv" id="cv">
+                        <p style="color: red;" id="req_cv"></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="reset" value="Reset"></td>
+                    <td><input type="submit" value="Submit" onclick="form_validation(event)"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+<script>function form_validation(event) {
+    event.preventDefault();
+
+    document.querySelectorAll("p[id^='req_']").forEach(p => p.innerHTML = "");
+
+    let valid = true;
+
+    let name = document.getElementById("name").value.trim();
+    if (name === "") {
+        document.getElementById("req_name").innerHTML = "Enter valid name";
+        valid = false;
+    }
+
+    let age = document.getElementById("age").value.trim();
+    if (age === "" || isNaN(age) || age <= 0) {
+        document.getElementById("req_age").innerHTML = "Enter valid age";
+        valid = false;
+    }
+
+    let gender = document.getElementById("gender").value;
+    if (gender === "") {
+        document.getElementById("req_gender").innerHTML = "Select gender";
+        valid = false;
+    }
+
+    let password = document.getElementById("password").value;
+    let repassword = document.getElementById("repassword").value;
+
+    let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+
+    if (password === "") {
+        document.getElementById("req_password").innerHTML = "Enter password";
+        valid = false;
+    } else if (!passwordPattern.test(password)) {
+        document.getElementById("req_password").innerHTML =
+            "Password must be at least 6 characters and contain uppercase, lowercase, number, and special character";
+        valid = false;
+    }
+
+    if (repassword === "") {
+        document.getElementById("req_repassword").innerHTML = "Re-enter password";
+        valid = false;
+    } else if (password !== repassword) {
+        document.getElementById("req_repassword").innerHTML = "Passwords do not match";
+        valid = false;
+    }
+
+    let security = document.querySelector('input[name="security"]:checked');
+    if (!security) {
+        document.getElementById("req_security").innerHTML = "Select a security question";
+        valid = false;
+    }
+
+    let secAns = document.getElementById("security_answer").value.trim();
+    if (secAns === "") {
+        document.getElementById("req_security").innerHTML = "Enter answer";
+        valid = false;
+    }
+
+    let email = document.getElementById("email").value.trim();
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === "") {
+        document.getElementById("req_email").innerHTML = "Enter email";
+        valid = false;
+    } else if (!emailPattern.test(email)) {
+        document.getElementById("req_email").innerHTML = "Enter valid email";
+        valid = false;
+    }
+
+    let langs = document.querySelectorAll(".lang:checked");
+    if (langs.length === 0) {
+        document.getElementById("req_language").innerHTML = "Select at least one language";
+        valid = false;
+    }
+
+    let home = document.getElementById("home_phone").value.trim();
+    let office = document.getElementById("office_phone").value.trim();
+    if (home === "" && office === "") {
+        document.getElementById("req_phone").innerHTML = "Enter at least one phone number";
+        valid = false;
+    }
+
+    let cv = document.getElementById("cv").value;
+    if (cv === "") {
+        document.getElementById("req_cv").innerHTML = "Upload your CV";
+        valid = false;
+    }
+
+    if (valid) {
+        alert("Form submitted successfully!");
+        document.querySelector("form").submit();
+    }
+
+    return valid;
+}
+
+</script>
+</html>

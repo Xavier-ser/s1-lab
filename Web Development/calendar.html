@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calendar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 months per row */
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .month {
+      border: 1px solid #ccc;
+      padding: 10px;
+      background-color: #f9f9f9;
+      font-family: monospace;
+      white-space: pre;
+    }
+
+    input, button {
+      font-size: 16px;
+      padding: 6px 10px;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Calendar Generator</h2>
+  <input id="yearInput" type="number" placeholder="Enter year">
+  <button onclick="genCal()">Generate</button>
+
+  <div id="out" class="calendar-grid"></div>
+
+  <script>
+    function genCal() {
+      const y = parseInt(document.getElementById("yearInput").value);
+      if (!y) return alert("Enter a valid year");
+
+      const mNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const outDiv = document.getElementById("out");
+      outDiv.innerHTML = ""; // Clear previous output
+
+      for (let m = 0; m < 12; m++) {
+        const firstDay = new Date(y, m, 1).getDay();
+        const totalDays = new Date(y, m + 1, 0).getDate();
+
+        let monthText = `📅 ${mNames[m]} ${y}\n`;
+        monthText += "Sun Mon Tue Wed Thu Fri Sat\n";
+        monthText += "    ".repeat(firstDay);
+
+        for (let d = 1; d <= totalDays; d++) {
+          monthText += d.toString().padStart(2, ' ') + "  ";
+          if ((firstDay + d) % 7 === 0) monthText += "\n";
+        }
+
+        // Create and append month div
+        const monthDiv = document.createElement("div");
+        monthDiv.className = "month";
+        monthDiv.textContent = monthText.trimEnd();
+        outDiv.appendChild(monthDiv);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+
+}
+.client{
+    min-height: 200px;
+     border: 8px; 
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.server{
+
+    height: 250px;
+    width: 300px;
+    font-size: 40pt;
+}
+
+</style>
+<body>
+    <u><h1 id="back" align="center">WEB TECHNOLOGY</h1></u>
+    <img src="./assets/technology-web-application.jpg"  height="250px" width="1250px" style="margin-left: 5px;">
+    <u><h2>TABLE OF CONTENTS</h2></u>
+    <p style="margin-top: -20px;">( click on the topic you want to learn )</p>
+    <table >
+<tr>
+    <td><a href="#client/server" style="text-decoration:none; color:black">Client/ Server</a></td>
+    <td><a href="#comp" style="text-decoration:none; color:black">Components of Web Application</a></td>
+        </tr>
+        <tr>
+            <td><a href="#webcontent" style="text-decoration:none; color:black">Types of Web Contents</a></td><td><a href="#http" style="text-decoration:none; color:black">HTTP-HTTP Request</a></td>
+        </tr>
+        <tr><td><a href="#dyna" style="text-decoration:none; color:black">Dynamic Web Pages</a></td>
+        <td><a href="#appl" style="text-decoration: none;  color:black">Application Servers</a></td></tr>
+    </table>
+
+    <u><h2 id="client/server">Client/ Server</h2></u>
+    <div class="client">
+        <div>
+        <img src="./assets/client-server_model_1253.png"  class="server">
+            
+        </div>        
+        <div >
+
+            <p style="font-size: 20px;">The client-server model is a distributed application architecture that divides tasks between service providers, called servers, and service requesters, called clients. In this model, the client sends a request to the server, and the server responds by providing the requested service or data. . This interaction is fundamental to how the internet works, with web browsers acting as clients requesting web pages from web servers. It centralizes resources and management on the server, while the client side is typically simpler, focusing on user interface and sending requests. This architecture provides several advantages, including easy scalability, centralized data management, and improved security.</p>
+        </div>
+    </div>
+    <u><h2 id="comp">Components of a Web</h2></u>
+     <div class="client" style="margin-top: -30px;">
+         <div >
+             
+             <p style="font-size: 20px;">Web Components are a set of web platform APIs that allow you to create new custom, reusable, encapsulated HTML tags to use in web pages and web apps. Think of them as a way to create your own HTML elements, like <my-button> or <product-card>, that contain their own functionality and styling. They are built on four main specifications: Custom Elements, which let you define new HTML tags; Shadow DOM, which encapsulates the component's markup and styles so they don't leak out; HTML Templates, which provide a way to write reusable markup; and HTML Imports, which allow for loading and reusing components (though this is now deprecated in favor of ES Modules). They aim to solve the problem of code reuse and encapsulation in web development, making it easier to build complex UIs from smaller, independent pieces.</p>
+            </div>
+            <div>
+            <img src="./assets/cms-e1450796735447.png" alt="" class="server">
+                
+            </div>        
+        </div>
+        <u><h2 id="webcontent">Types of Web Content</h2></u>
+    <div class="client">
+        <div>
+        <img src="./assets/dynamic-webpage.png" alt="" class="server">
+            
+        </div>        
+        <div >
+
+            <p style="font-size: 20px; padding-left:20px">Web content refers to the textual, visual, or audio information presented to users on a website. It can be categorized into several main types based on its purpose and format. Textual content includes articles, blogs, product descriptions, and static pages, which are the foundational elements of most websites. Visual content encompasses images, infographics, and videos, which are crucial for engagement and conveying complex information quickly. Interactive content such as quizzes, polls, and calculators encourages user participation and can enhance the user experience.  Other forms include audio content like podcasts and music, and downloadable content such as e-books and white papers. The combination and strategic use of these different content types are essential for creating a rich and effective online presence.</p>
+        </div>
+    </div>
+    <u><h2 id="http">HTTP Request</h2></u>
+     <div class="client" style="margin-top: -30px;">
+         <div >
+             
+             <p style="font-size: 20px;">An HTTP request is a message sent by a client, such as a web browser, to a server to ask for a resource, like a web page or an image. It's the core of how data is exchanged on the web. The request contains several key parts: a request method (e.g., GET to retrieve data, POST to submit data), a path to the resource being requested, a version of HTTP being used, and optional HTTP headers that provide additional information about the request (e.g., the type of content the client accepts). The request may also include a body, which is used to send data to the server, especially with POST and PUT methods. Once the server receives the request, it processes it and sends back an HTTP response.</p>
+            </div>
+            <div>
+            <img src="./assets/ImageOfHTTPRequestResponse-660x374.png" alt="" class="server">
+                
+            </div>        
+        </div>
+
+         <u><h2 id="dyna">Dynamic Webpage</h2></u>
+    <div class="client">
+        <div>
+        <img src="./assets/images.png" alt="" class="server">
+            
+        </div>        
+        <div >
+
+            <p style="font-size: 20px;">A dynamic webpage is a web page whose content and/or appearance can change based on a user's actions, time of day, or other factors. Unlike a static webpage, which displays the exact same content to every user from a pre-written HTML file, a dynamic page is built on the fly by a server. This is typically accomplished using server-side scripting languages like PHP, Python, or Node.js, which process a user's request, interact with a database to retrieve relevant information, and then assemble a unique HTML page to send back to the user's browser. . E-commerce sites, social media feeds, and search results pages are common examples of dynamic web pages, as they need to display personalized or up-to-the-minute content to each visitor.</p>
+        </div>
+    </div>
+    <u><h2 id="appl">Application Servers</h2></u>
+     <div class="client" style="margin-top: -30px;">
+         <div >
+             
+             <p style="font-size: 20px;">An application server is a software framework that provides an environment for running and managing applications, particularly those that require dynamic content generation and complex business logic. Unlike a simple web server, which primarily serves static files like HTML and images, an application server acts as a middleware, sitting between the web server and the backend databases or other resources. . Its main function is to handle the application's business logic, process requests from clients, retrieve and manipulate data from databases, and then send the resulting dynamic content back to the client. It offers services like transaction management, security, and resource pooling, which are essential for building scalable and robust enterprise-level applications.</p>
+            </div>
+            <div>
+            <img src="./assets/application-server-diagram.png" alt="" class="server">
+                
+            </div>        
+        </div>
+
+        <h4 align="center"><a href="#back">Back to Top</a></h4>
+</body>
+</html>
